@@ -17,6 +17,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Build and push Docker images
+      uses: actions/checkout@v2
       run: |
         docker login --username andeadlier --password ${{ secrets.dockerHubAccessToken }}
         docker build . --tag andeadlier/dotnet-framework-sdk-with-java:latest
