@@ -9,15 +9,16 @@ on:
     branches:
       - master
     tags:
-      - 4.8
+      - "4.8"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   dockerhub:
     runs-on: windows-latest
     steps:
-    - name: Build and push Docker images
+    - name: Checkout
       uses: actions/checkout@v2
+    - name: Build and push Docker images
       run: |
         docker login --username andeadlier --password ${{ secrets.dockerHubAccessToken }}
         docker build . --tag andeadlier/dotnet-framework-sdk-with-java:latest
