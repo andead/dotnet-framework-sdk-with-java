@@ -22,4 +22,4 @@ jobs:
       run: |
         docker login --username andeadlier --password ${{ secrets.dockerHubAccessToken }}
         docker build . --tag andeadlier/dotnet-framework-sdk-with-java:latest
-        docker push
+        docker push andeadlier/dotnet-framework-sdk-with-java:latest
